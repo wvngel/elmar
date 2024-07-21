@@ -14,28 +14,29 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .container {
-            width: 80%;
+            width: 90%;
             max-width: 800px;
             background-color: #fde9fe;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             border-radius: 20px;
-            padding: 40px;
+            padding: 20px;
             border: 3px dashed #dda0dd;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-sizing: border-box;
         }
         h1 {
             color: #800080;
-            font-size: 3em;
+            font-size: 2em;
             margin-bottom: 20px;
             text-shadow: 2px 2px #dda0dd;
         }
         .message {
-            font-size: 1.5em;
+            font-size: 1.2em;
             color: #4b0082;
             background-color: #f3c0f5;
             padding: 20px;
@@ -45,74 +46,84 @@
             line-height: 1.6;
             position: relative;
             z-index: 1;
+            margin-bottom: 20px;
+            box-sizing: border-box;
         }
         .footer {
             margin-top: 30px;
             color: #4b0082;
             font-style: italic;
-            font-size: 1.2em;
+            font-size: 1em;
             position: relative;
             z-index: 1;
         }
-        .heart {
-            position: absolute;
-            top: 10%;
-            left: 90%;
-            width: 150px;
-            height: 150px;
-            background-color: #ff66b2;
-            border-radius: 50%;
-            transform: rotate(-45deg);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 0;
-            opacity: 0.8;
+        .heart, .butterfly {
+            display: none; /* Hide for mobile for now, could be reworked for better display */
         }
-        .heart::before,
-        .heart::after {
-            content: '';
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background-color: #ff66b2;
-            border-radius: 50%;
-        }
-        .heart::before {
-            top: -75px;
-            left: 0;
-        }
-        .heart::after {
-            top: 0;
-            left: -75px;
-        }
-        .butterfly {
-            position: absolute;
-            top: 30%;
-            left: -5%;
-            width: 100px;
-            height: 100px;
-            background-color: #ff99ff;
-            border-radius: 50%;
-            transform: rotate(45deg);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 0;
-            opacity: 0.8;
-        }
-        .butterfly::before,
-        .butterfly::after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-color: #ff99ff;
-            border-radius: 50%;
-        }
-        .butterfly::before {
-            top: -50px;
-            left: 0;
-        }
-        .butterfly::after {
-            top: 0;
-            left: -50px;
+        @media (min-width: 768px) {
+            .heart, .butterfly {
+                display: block;
+            }
+            .heart {
+                position: absolute;
+                top: 10%;
+                left: 90%;
+                width: 150px;
+                height: 150px;
+                background-color: #ff66b2;
+                border-radius: 50%;
+                transform: rotate(-45deg);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                z-index: 0;
+                opacity: 0.8;
+            }
+            .heart::before,
+            .heart::after {
+                content: '';
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                background-color: #ff66b2;
+                border-radius: 50%;
+            }
+            .heart::before {
+                top: -75px;
+                left: 0;
+            }
+            .heart::after {
+                top: 0;
+                left: -75px;
+            }
+            .butterfly {
+                position: absolute;
+                top: 30%;
+                left: -5%;
+                width: 100px;
+                height: 100px;
+                background-color: #ff99ff;
+                border-radius: 50%;
+                transform: rotate(45deg);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                z-index: 0;
+                opacity: 0.8;
+            }
+            .butterfly::before,
+            .butterfly::after {
+                content: '';
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background-color: #ff99ff;
+                border-radius: 50%;
+            }
+            .butterfly::before {
+                top: -50px;
+                left: 0;
+            }
+            .butterfly::after {
+                top: 0;
+                left: -50px;
+            }
         }
     </style>
 </head>
@@ -120,12 +131,11 @@
     <div class="container">
         <div class="heart"></div>
         <div class="butterfly"></div>
-        <br><br>
         <h1>¿Por qué el mar?</h1>
         <div class="message">
             Mi niña,
             <br><br>
-            El mar nunca fue algo importante para mí, pero desde ese día se volvió algo especial. Tantas cosas que asociar, la paz, el amor, el recuerdo, juztamente cosas que solo tú me das.
+            El mar nunca fue algo importante para mí, pero desde ese día se volvió algo especial. Tantas cosas que asociar, la paz, el amor, el recuerdo, justamente cosas que solo tú me das.
             Si te soy sincero, nunca imaginé sentir tanta alegría con un "sí" como la sentí esa tarde, pero así ha sido nuestra historia de amor, partiendo con nada, cuando éramos pequeños, y queriéndolo todo cuando la vida nos juntó. Inesperado, y sorprendiéndonos del amor que quizá algún día pensamos imposible de sentir, siendo cada vez más anhelados esos "Te amo" que nos decimos sonriéndonos.
             <br>
             Un añito más de tu vida, y para mí una nueva oportunidad para recordarte lo maravillosa que eres, lo mucho que te amo, y todo lo que me haces sentir. Eres la paz en mi corazón cuando estamos juntos, mi recuerdo favorito cuando no estamos juntos, y el amor, el amor de mi vida.
@@ -134,7 +144,7 @@
             <br>
             -M.
         </div>
-       
     </div>
 </body>
 </html>
+
