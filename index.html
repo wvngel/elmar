@@ -5,124 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Por qué el mar?</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap');
+        
         body {
-            font-family: 'Cursive', 'Arial', sans-serif;
-            background-color: #e0b3e6;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f6d8f0, #c4a7e7);
             color: #4b0082;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
         }
         .container {
             width: 90%;
             max-width: 800px;
-            background-color: #fde9fe;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
-            padding: 20px;
-            border: 3px dashed #dda0dd;
+            padding: 30px;
+            border: 2px solid #dda0dd;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-sizing: border-box;
         }
         h1 {
-            color: #800080;
-            font-size: 2em;
+            color: #7a4dd8;
+            font-size: 2.5em;
             margin-bottom: 20px;
             text-shadow: 2px 2px #dda0dd;
         }
         .message {
             font-size: 1.2em;
             color: #4b0082;
-            background-color: #f3c0f5;
+            background-color: #f3e4f7;
             padding: 20px;
-            border-radius: 20px;
-            border: 3px solid #d8bfd8;
+            border-radius: 10px;
+            border: 2px solid #d8bfd8;
             box-shadow: inset 0 0 10px #dda0dd;
             line-height: 1.6;
-            position: relative;
-            z-index: 1;
-            margin-bottom: 20px;
-            box-sizing: border-box;
         }
         .footer {
-            margin-top: 30px;
+            margin-top: 20px;
             color: #4b0082;
             font-style: italic;
             font-size: 1em;
-            position: relative;
-            z-index: 1;
         }
-        .heart, .butterfly {
-            display: none; /* Hide for mobile for now, could be reworked for better display */
+        .heart,
+        .butterfly {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #ff66b2;
+            border-radius: 50%;
+            transform: rotate(-45deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0.7;
+            animation: float 6s ease-in-out infinite;
         }
-        @media (min-width: 768px) {
-            .heart, .butterfly {
-                display: block;
+        .heart {
+            top: 5%;
+            left: 85%;
+        }
+        .heart::before,
+        .heart::after,
+        .butterfly::before,
+        .butterfly::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #ff66b2;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .heart::after {
+            top: 0;
+            left: -50px;
+        }
+        .butterfly {
+            top: 20%;
+            left: -10%;
+            background-color: #ff99ff;
+            animation: float 8s ease-in-out infinite;
+        }
+        .butterfly::before {
+            top: -50px;
+            left: 0;
+        }
+        .butterfly::after {
+            top: 0;
+            left: -50px;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(-45deg); }
+            50% { transform: translateY(-20px) rotate(-45deg); }
+            100% { transform: translateY(0) rotate(-45deg); }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
             }
-            .heart {
-                position: absolute;
-                top: 10%;
-                left: 90%;
-                width: 150px;
-                height: 150px;
-                background-color: #ff66b2;
-                border-radius: 50%;
-                transform: rotate(-45deg);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                z-index: 0;
-                opacity: 0.8;
+            .message {
+                font-size: 1em;
+                padding: 15px;
+            }
+            .heart,
+            .butterfly {
+                width: 80px;
+                height: 80px;
             }
             .heart::before,
-            .heart::after {
-                content: '';
-                position: absolute;
-                width: 150px;
-                height: 150px;
-                background-color: #ff66b2;
-                border-radius: 50%;
-            }
-            .heart::before {
-                top: -75px;
-                left: 0;
-            }
-            .heart::after {
-                top: 0;
-                left: -75px;
-            }
-            .butterfly {
-                position: absolute;
-                top: 30%;
-                left: -5%;
-                width: 100px;
-                height: 100px;
-                background-color: #ff99ff;
-                border-radius: 50%;
-                transform: rotate(45deg);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                z-index: 0;
-                opacity: 0.8;
-            }
+            .heart::after,
             .butterfly::before,
             .butterfly::after {
-                content: '';
-                position: absolute;
-                width: 100px;
-                height: 100px;
-                background-color: #ff99ff;
-                border-radius: 50%;
-            }
-            .butterfly::before {
-                top: -50px;
-                left: 0;
-            }
-            .butterfly::after {
-                top: 0;
-                left: -50px;
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
@@ -136,8 +138,9 @@
             Mi niña,
             <br><br>
             El mar nunca fue algo importante para mí, pero desde ese día se volvió algo especial. Tantas cosas que asociar, la paz, el amor, el recuerdo, justamente cosas que solo tú me das.
+            <br><br>
             Si te soy sincero, nunca imaginé sentir tanta alegría con un "sí" como la sentí esa tarde, pero así ha sido nuestra historia de amor, partiendo con nada, cuando éramos pequeños, y queriéndolo todo cuando la vida nos juntó. Inesperado, y sorprendiéndonos del amor que quizá algún día pensamos imposible de sentir, siendo cada vez más anhelados esos "Te amo" que nos decimos sonriéndonos.
-            <br>
+            <br><br>
             Un añito más de tu vida, y para mí una nueva oportunidad para recordarte lo maravillosa que eres, lo mucho que te amo, y todo lo que me haces sentir. Eres la paz en mi corazón cuando estamos juntos, mi recuerdo favorito cuando no estamos juntos, y el amor, el amor de mi vida.
             <br><br>
             Con todo mi amor,
